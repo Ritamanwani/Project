@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">donationfund</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="bank" view="colnames">
+<left>0</left>
+<top>0</top>
+<width>108</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `bank` (
+  `BankID` int(11) DEFAULT NULL,
+  `BankName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="card" view="colnames">
+<left>138</left>
+<top>9</top>
+<width>119</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `card` (
+  `CardID` int(11) DEFAULT NULL,
+  `CardNumber` varchar(255) DEFAULT NULL,
+  `CVVNumber` varchar(255) DEFAULT NULL,
+  `ExpireDate` varchar(50) DEFAULT NULL,
+  `CardTypeID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="cardtype" view="colnames">
+<left>270</left>
+<top>15</top>
+<width>116</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `cardtype` (
+  `CardTypeID` int(11) NOT NULL AUTO_INCREMENT,
+  `CardType` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CardTypeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="check" view="colnames">
+<left>781</left>
+<top>17</top>
+<width>136</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `check` (
+  `CheckID` int(11) NOT NULL AUTO_INCREMENT,
+  `BankID` int(11) DEFAULT NULL,
+  `RoutingNumber` varchar(255) DEFAULT NULL,
+  `AccountNumber` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CheckID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="city" view="colnames">
+<left>36</left>
+<top>320</top>
+<width>90</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `city` (
+  `CityID` int(11) NOT NULL AUTO_INCREMENT,
+  `CityName` varchar(255) DEFAULT NULL,
+  `CountryID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`CityID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="country" view="colnames">
+<left>620</left>
+<top>15</top>
+<width>106</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `country` (
+  `CountryID` int(11) NOT NULL AUTO_INCREMENT,
+  `CountryName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CountryID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="donation" view="colnames">
+<left>970</left>
+<top>405</top>
+<width>111</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `donation` (
+  `DonationID` int(11) NOT NULL AUTO_INCREMENT,
+  `DonName` varchar(255) DEFAULT NULL,
+  `ProjID` int(11) DEFAULT NULL,
+  `SubProjID` int(11) DEFAULT NULL,
+  `UserID` int(11) DEFAULT NULL,
+  `Amount` varchar(255) DEFAULT NULL,
+  `Quantity` varchar(255) DEFAULT NULL,
+  `DonTypeID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`DonationID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="donationtype" view="colnames">
+<left>808</left>
+<top>203</top>
+<width>130</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `donationtype` (
+  `DonTypeID` int(11) NOT NULL AUTO_INCREMENT,
+  `DonationName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`DonTypeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="payment" view="colnames">
+<left>253</left>
+<top>186</top>
+<width>122</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `payment` (
+  `PaymentID` int(11) NOT NULL AUTO_INCREMENT,
+  `PayMethodID` int(11) DEFAULT NULL,
+  `BankID` int(11) DEFAULT NULL,
+  `UserID` int(11) DEFAULT NULL,
+  `CheckID` int(11) DEFAULT NULL,
+  `CardID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`PaymentID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="paymentmethod" view="colnames">
+<left>0</left>
+<top>190</top>
+<width>122</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `paymentmethod` (
+  `PayMethodID` int(11) NOT NULL AUTO_INCREMENT,
+  `PayMethod` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`PayMethodID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="program" view="colnames">
+<left>1258</left>
+<top>253</top>
+<width>105</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `program` (
+  `ProgID` int(11) NOT NULL AUTO_INCREMENT,
+  `ProgName` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ProgID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="project" view="colnames">
+<left>1096</left>
+<top>30</top>
+<width>102</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `project` (
+  `ProjID` int(11) NOT NULL AUTO_INCREMENT,
+  `ProjName` varchar(255) DEFAULT NULL,
+  `ProgID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ProjID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="receipt" view="colnames">
+<left>282</left>
+<top>518</top>
+<width>116</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `receipt` (
+  `ReceiptID` int(11) NOT NULL AUTO_INCREMENT,
+  `ReceiptType` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ReceiptID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="recurring" view="colnames">
+<left>701</left>
+<top>479</top>
+<width>135</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `recurring` (
+  `RecurringID` int(11) NOT NULL AUTO_INCREMENT,
+  `EndDate` varchar(50) DEFAULT NULL,
+  `RepeatDuration` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`RecurringID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="schedule" view="colnames">
+<left>563</left>
+<top>302</top>
+<width>115</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `schedule` (
+  `ScheduleID` int(11) NOT NULL AUTO_INCREMENT,
+  `SchTypeStatus` varchar(255) DEFAULT NULL,
+  `ScheduleName` varchar(255) DEFAULT NULL,
+  `StartDate` varchar(255) DEFAULT NULL,
+  `RecurringID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ScheduleID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="subproject" view="colnames">
+<left>1253</left>
+<top>14</top>
+<width>110</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `subproject` (
+  `SubProjID` int(11) NOT NULL AUTO_INCREMENT,
+  `SprojName` varchar(255) DEFAULT NULL,
+  `ProjID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`SubProjID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="user" view="colnames">
+<left>409</left>
+<top>188</top>
+<width>116</width>
+<height>311</height>
+<sql_create_table>CREATE TABLE `user` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `FName` varchar(255) DEFAULT NULL,
+  `MName` varchar(255) DEFAULT NULL,
+  `LName` varchar(255) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `Password` varchar(50) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `ZCode` varchar(50) DEFAULT NULL,
+  `CityID` int(11) DEFAULT NULL,
+  `CountryID` int(11) DEFAULT NULL,
+  `Phone` varchar(50) DEFAULT NULL,
+  `ReceiptID` int(11) DEFAULT NULL,
+  `Comments` blob,
+  PRIMARY KEY (`UserID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="receipttype" view="colnames">
+<left>484</left>
+<top>528</top>
+<width>130</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `receipttype` (
+  `ReceiptTypeID` int(11) NOT NULL AUTO_INCREMENT,
+  `Receipt` varchar(25) DEFAULT NULL,
+  `UserID` int(11) DEFAULT NULL,
+  UNIQUE KEY `ReceiptTypeID` (`ReceiptTypeID`),
+  KEY `FK_receipttypejhj` (`UserID`),
+  CONSTRAINT `FK_receipttypejhj` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="state" view="colnames">
+<left>441</left>
+<top>17</top>
+<width>106</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `state` (
+  `StateID` int(11) NOT NULL AUTO_INCREMENT,
+  `State` varchar(255) DEFAULT NULL,
+  `CountryID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`StateID`),
+  KEY `FK_state` (`CountryID`),
+  CONSTRAINT `FK_state` FOREIGN KEY (`CountryID`) REFERENCES `country` (`CountryID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
