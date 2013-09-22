@@ -1,0 +1,60 @@
+/*------------------------- Login LightBOX ------------------------*/
+.label
+        {
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            font-size: large;
+            color: #808080;
+			font-size:13px;
+        }
+        .click
+        {
+            font-family: Verdana;
+            font-size: medium;
+            font-weight: bold;
+            color: #808080;
+            
+        }
+    
+        .Title
+        {
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            font-size: large;
+            color: #919191;
+        }
+    
+        #login
+        {
+             width: 64px;
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+            font-size: Large;
+            background-color:#919191;
+            color:white;
+        }
+      .grey_overlay{
+			
+			position: absolute;
+			top: 0px;
+			left:100%;
+			width: 100%;
+			height: 100%;
+			background-color: #919191;
+			z-index:1001;
+			-moz-opacity: 0.8;
+			opacity:.80;
+			filter: alpha(opacity=80);
+			display: none;
+		}
+		.white_content {
+			display: none;
+			position: relative;
+			margin_top:100px;
+			margin:0 auto;
+			width: 300px;
+			height: 300px;
+			box-shadow:inset 0 0 4px 4px #999;
+			background-color: white;
+			z-index:1002;
+			border-radius:10px;
+			margin-left:100%;
+		}
+		
